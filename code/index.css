@@ -1,0 +1,125 @@
+:root {
+    --color-dark: #1e1e30;
+    --color-medium: #9b9bc4;
+    --color-light: #ffffff;
+    --color-accent: #f5f553;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 96vh;
+    background-color: var(--color-medium);
+    color: var(--color-light);
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    font-size: 1em;
+
+    display: grid;
+    grid-template-columns: 20% 20% 50%;
+    grid-template-rows: 5% 40% 40% 10%;
+    justify-content: center;
+    gap: 2%;
+    padding: 1%;
+
+    box-sizing: border-box;
+}
+
+.container div {
+    background-color: var(--color-light);
+    border-radius: 15px;
+}
+
+#header {
+    grid-column: span 2;
+}
+
+#time_display, #header, #timeline {  
+    text-align: center;
+    font-size: 100%;
+    background-color: var(--color-medium);
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* TIMELINE */
+#timeline {
+    grid-column: span 3;
+}
+
+.tick circle {
+    r: 5;
+    fill: var(--color-accent);
+    transition: 0.3s;
+}
+
+.tick circle:hover {
+    r: 10;
+    fill: var(--color-light);
+}
+
+/* MAP */
+#map_layout {
+    grid-column: span 2;
+    grid-row: span 2;
+    background-color: var(--color-medium);
+}
+
+#map_layout .tooltip rect {
+    width: 80px;
+    height: 40px;
+    rx: 1%;
+    fill: var(--color-light);
+    stroke: var(--color-dark);
+    stroke-width: 0.5%;
+}
+
+#map_layout path {
+    /* stroke: var(--color-dark); */
+    stroke-width: 0.8px;
+}
+
+#map_layout path:hover {
+    cursor: pointer;
+    fill: var(--color-accent);
+}
+
+/* BAR */
+#bar_layout {
+    padding-top: 2%;
+    text-align: center;
+    opacity: 0.9;
+}
+
+#bar_layout svg {
+    height: 90%;
+}
+
+#bar_layout .bar:hover {
+    stroke: var(--color-accent);
+}
+
+/* CLUSTER */
+#cluster_layout {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    background-color: var(--color-dark);
+    opacity: 0.9;
+}
+
+#cluster_layout text {
+    font-size: 0.8em;
+}
+
+#info_button:hover {
+    filter: hue-rotate(90deg);
+}
