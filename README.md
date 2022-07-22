@@ -2220,52 +2220,6 @@ document.getElementById('time_display').addEventListener(
 );
 ```
 
-### Meeting Requirements
-
-The following table documents in brief how all requirements for this lab was met.
-
-| Number | Requirement                                                                                                                                                   | Way Fulfilled                                                                                                                                                                                                                                         |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| R1     | Use of three different D3 layouts in a single dashboard                                                                                                       | There exists map, bar and cluster layout with added timeline.                                                                                                                                                                                         |
-| R2     | Use of automatic scaling of all axes in a single layout during data update.                                                                                   | All axes on the dashboard (that of bar layout, timeline and invisible ones of cluster layout) get updated using smooth transisitons as per latest data.                                                                                               |
-| R3     | Use of cross-layout brushing in which moussing over one data point in one chart highlights multiple associated data points in another chart.                  | Brushing over the circles in the cluster layout highlights only countries corresponding to those circles in the map layout be removing all others.                                                                                                    |
-| R4     | Use of bidirectional interaction between three charts.                                                                                                        | Mouse events on ony one of all three charts results in some change in all the charts.                                                                                                                                                                 |
-| R5     | Faceted selection interaction between two layouts (in which mouseover or click in one layout results in data being filtered in a second layout).              | Brush selecting circles in the cluster layout causes data filtering in the bar layout. Selecting a country in the map layout causes data filtering in the bar layout. Selecting different times in the timeline filters data across entire dashboard. |
-| R6     | Use of a map layout that has interaction with another layout.                                                                                                 | Map integrated into the dashboard as a ovable globe. Mouse events (hover/click) on the globe instigate changes in both other layouts.                                                                                                                 |
-| R7     | Use of scalar data on a map (e.g. circles of different sizes to indicate different weightage).                                                                | Circles of different size and color in the cluster layout stand for different gdp_per capia values. Redness of color of countries in the map layout indicates new case rate values.                                                                   |
-| R8     | Use of cross-layout brushing in which dragging a rectangle over several data points in one chart highlights multiple associated data points in another chart. | Brushing over the circles in the cluster layout highlights only countries corresponding to those circles in the map layout be removing all others. Brush selecting circles in the cluster layout causes data filtering in the bar layout.             |
-| R9     | Use of a clustering analysis.                                                                                                                                 | The t-SNE algorithm was used to visualize 4D vectors on 2D plot to view and analyze clusters.                                                                                                                                                         |
-
-This imaplementation of the dashboard also contains features that may not be mentioned in above list of requirements.
-
-### Queries Answered
-
-The following answers were derived for queries presented in part 4 after investigating the data using the dashboard.
-
-**Q1.** Narrate the evolution of the COVID-19 pandemic over the continents and specific countries (you can provide the narration for a selection of countries).
-
-**A.** New cases in Asia and South America remained low compared to other continents while the no. of cases in Europe and North America remained high. Europe reported highest no. of new cases throughout the time period from 1 Jan 2020 to 25 Feb 2022. 
-
-The most likely reason for this is that while vaccination rate was high in Europe, it still always had on average lower stringency index than Asia and South America. 
-
-This was observed from the bar plot across the timeline
-
-**Q2.** Is there a relation between the relative ‘wealth’ of a population and the evolution of the pandemic.
-
-**A2.** Wealthier countries show more case rate over time despite more vaccination and booster rate. Many of the wealthier nations have lower stringency index score which explains this trend. But, still there are few exceptions like Germany where stringency index is high along with vaccination/booster rate but still show higher case rate than expected while in countries like Sudan, NCR is low even when vaccination/booster rate as well as stringency index is lower. This has been estimated to be due wealthiest countries simply having more facilities than in least wealthiest nations accounting for more cases getting diagnosed in the former case. This was observed from cluster analysis.
-
-**Q3.** What is the effect of vaccinations on the spread of cases/deaths and display any effect (if any) that booster jabs have on the cases/deaths.
-
-**A3.** Vaccination and booster jabs only seem to have an impact on curbing no. of new cases in countries whose stringency index is maintained at a high enough score. This was found upon observing new case rate (NCR) in South America where similar to Asia, there was a good effort to vaccinate which kept South America lower in comparative world NCR rankings. However in the years 2021 and 2022 when global NCR was highest, despite South America boasting highest vaccination rate and higher booster rate than Asia, it still reported slightly higher NCR than Asia. This is explained by the fact that though South America had comparatively highest stringency index in 2020 and 2021, it continued to show lower stringency index progressively until Asia surpassed it in 2022.
-
-**Q4.** How does the geographical position of a country affect the evolution of COVID-19.
-
-**A4.** Geographic position does not seem to be a large factor in no. of new cases reported. That said, it was seen from the map layout that generally, countries farther away from the equator show higher NCR. This is likely because European and some North American nations which consistently reported higher NCR is situated here. There many be many other factors influencing this pattern. No strong evidence was found in the data that suggests that NCR has a significant correlation to  geographic location.
-
-<p align="center" width="100%">
-    <img src="images/map_timeline.png" width="100%">
-</p>
-
 ## <b>Narrative</b>
 
 One possible narrative derived upon analysis of data using the dashboard  is presented below. 
@@ -2280,16 +2234,6 @@ One possible narrative derived upon analysis of data using the dashboard  is pre
 </p>
 
 The above poster was designed on [www.canva.com](https://www.canva.com/features/) using only content from the dashboard.
-
-## <b>Limitations and Possible Extensions</b>
-
-1. Usually w.r.t. data story telling, a narrative is 1st developed based on insights gained after multiple rough visualizations of data before building the final dashboard that can take the viewer through the narrative (WordStream, 2022). But here, due to strict time constraints, there was a need to start with building the dashboard asap with lesser scope for in-depth data investigation and many visualization iterations that could result in a dashboard that's more catered towards one particular narrative. Thus, further investigation into why the results were as they were and changing of the dashboard display in tandem with new insights with possibly additional parameters displayed to help explain some trends better, was not possible in the given timeframe, especially since it is forbidden to alter dashboard content after demonstration.
-
-2. Data had a lot of NaN values which got replaced with 0. Also, some attribute values were absent for a lot of countries that made results from these attributes not very usable. For example, "handwashing_facilities" attribute value was not available for most of the European countries. Thus, though visualized, this parameter did not play a large role in the narrative.
-
-3. This dashboard can potentially be expanded to highlight regions specific to each bar when clicking on a bar in the bar chart in addition to the hover interaction present now.
-
-4. An option to switch between globe and flat projections of map layout could also be added to make it easier to view the whole map at once as well as focus on certain parts of the globe with added intriguing interaction.
 
 ## References
 
